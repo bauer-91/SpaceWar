@@ -36,6 +36,9 @@ class Level:
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf, dest=ent.rect)
                 ent.move()
+                if ent.name == 'player':
+                    self.level_text(14, f'Player - Health:{ent.health}', (0, 255, 200), (10, 15))
+                    self.level_text(14, f'Player - Score:{ent.score}', (0, 255, 200), (10, 25))
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
@@ -52,17 +55,12 @@ class Level:
                             if isinstance(ent, Player):
                                 self.entity_list.append(ent.shoot())
                                 break
-                #if event.type == EVENT_ENEMY:
-                #    enemy = EntityFactory.get_entity('enemy')
-                #    self.entity_list.append(enemy)
-                #    # chance de atirar
-                #    self.entity_list.append(enemy.shoot())
                 if event.type == EVENT_ENEMY_SHOT:
                     for ent in self.entity_list:
                         if isinstance(ent, Enemy):
                             self.entity_list.append(ent.shoot())
 
-            self.level_text(14, f'LEVEL 1 - Timeout: {self.timeout / 1000 :.1f}s', (0, 255, 200), (10, 5))
+            self.level_text(14, f'LEVEL 1', (0, 255, 200), (10, 5))
 
             pygame.display.flip()
             EntityMediator.verify_collision(entity_list=self.entity_list)

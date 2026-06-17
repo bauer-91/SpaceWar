@@ -21,6 +21,28 @@ ENTITY_HEALTH = {
     'background1-2': 999,
     'background1-3': 999,
     'background1-4': 999,
-    'playerShot': 999,
-    'enemyShot': 999,
+    'playerShot': 1,
+    'enemyShot': 1,
+}
+
+ENTITY_DAMAGE = {
+    'player': 1,
+    'enemy': 1,
+    'background1-1': 999,
+    'background1-2': 999,
+    'background1-3': 999,
+    'background1-4': 999,
+    'playerShot': 25,
+    'enemyShot': 15,
+}
+
+ENTITY_SCORE = {
+    'player': 0,
+    'enemy': 50,
+    'background1-1': 0,
+    'background1-2': 0,
+    'background1-3': 0,
+    'background1-4': 0,
+    'playerShot': 0,
+    'enemyShot': 0,
 }
